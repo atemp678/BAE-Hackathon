@@ -20,6 +20,7 @@ const AddNewContact = (props) => {
 
   const addBtnHandler = () => {
     addContact(state);
+    props.toggleContact((prevState) => !prevState);
   };
 
   return (

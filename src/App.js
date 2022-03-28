@@ -9,12 +9,13 @@ function App() {
   const [contacts, setContacts] = useState([]);
   const [viewedContact, setViewedContact] = useState(false);
   const [addContactView, setAddContactView] = useState(false);
+  const [contactToggle, setContactToggle] = useState(false);
   useEffect(() => {
     async function getAllContacts() {
       setContacts(await getContacts());
     }
     getAllContacts();
-  }, []);
+  }, [contactToggle]);
   console.log("viewedContact: ", viewedContact);
   function viewSingleContact(docRef) {
     console.log(docRef);
@@ -30,14 +31,9 @@ function App() {
 
   return (
     <div className="App">
-      {!addContactView && contacts.length > 0 && !viewedContact && (
-        <ViewContacts
-          contacts={contacts}
-          viewSingleContact={viewSingleContact}
-        />
-      )}
+      <AddNewContact toggleContact={setContactToggle} />
+      <ViewContacts contacts={contacts} viewSingleContact={viewSingleContact} />
       {viewedContact && <ViewContact contact={viewedContact} />}
-      {addContactView && <AddNewContact />}
     </div>
   );
 }
