@@ -1,4 +1,5 @@
 import React from "react";
+import * as moment from "moment";
 
 export default function ViewContactSummary({
   name,
@@ -6,10 +7,16 @@ export default function ViewContactSummary({
   viewSingleContact,
   docRef,
 }) {
+  let lastContact = moment(new Date(date));
+  let today = moment(new Date());
+  let diff = parseInt(today.diff(lastContact) / 86400000);
+
   return (
     <li>
       <div onClick={() => viewSingleContact(docRef)}>{name}</div>
-      <div>{date}</div>
+      <div>
+        You spoke to {name} {diff} days ago.
+      </div>
     </li>
   );
 }
