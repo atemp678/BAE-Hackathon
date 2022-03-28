@@ -28,7 +28,7 @@ describe("Input Field Tests", () => {
       "Valerio is starting to learn Python!"
     );
     expect(screen.getByPlaceholderText("Last time we spoke...")).toHaveValue(
-      "Valerio is starting to learn Pyhon!"
+      "Valerio is starting to learn Python!"
     );
   });
 });
