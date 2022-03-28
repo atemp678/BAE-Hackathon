@@ -24,6 +24,7 @@ const AddNewContact = (props) => {
         <input
           type="text"
           id="first-name"
+          placeholder="Joanne"
           name="firstName"
           value={state.firstName}
           onChange={(e) =>
@@ -38,6 +39,7 @@ const AddNewContact = (props) => {
         <input
           type="text"
           id="last-name-initial"
+          placeholder="S"
           name="lastNameInitial"
           value={state.lastNameInitial}
           onChange={(e) =>
@@ -53,6 +55,7 @@ const AddNewContact = (props) => {
           type="date"
           id="last-contact"
           name="lastContact"
+          placeholder="2022-03-16"
           value={state.lastContact}
           onChange={(e) =>
             dispatch({
@@ -67,6 +70,7 @@ const AddNewContact = (props) => {
           type="text"
           id="notes"
           name="notes"
+          placeholder="Last time we spoke..."
           value={state.notes}
           onChange={(e) =>
             dispatch({
