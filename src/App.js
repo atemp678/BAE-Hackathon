@@ -1,9 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
 import getContacts from "./firebase/firebaseConfig";
+import ViewContacts from "./components/ViewContacts";
 
 function App() {
+
   getContacts();
+
   return (
     <div className="App">
       <header className="App-header">
