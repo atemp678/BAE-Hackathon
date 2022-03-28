@@ -5,9 +5,13 @@ export default function Notes({ noteData }) {
     <div>
       <h4>Conversations</h4>
       <ul className="note-list">
-        {noteData.map((note, index) => (
-          <Note noteData={noteData} key={index} />
-        ))}
+        {noteData.length > 0 ? (
+          noteData.map((note, index) => (
+            <Note noteData={noteData} key={index} />
+          ))
+        ) : (
+          <p>You haven't made any notes on this user.</p>
+        )}
       </ul>
       <div className="addNewNote">
         <textarea></textarea>

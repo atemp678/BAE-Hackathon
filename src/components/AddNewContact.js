@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-
+import { addContact } from "../firebase/firebaseConfig";
 function reducer(state, action) {
   switch (action.type) {
     case "change":
@@ -15,7 +15,12 @@ const AddNewContact = (props) => {
     lastNameInitial: "",
     lastContact: "",
     notes: "",
+    contact: "",
   });
+
+  const addBtnHandler = () => {
+    addContact(state);
+  };
 
   return (
     <div>
@@ -50,12 +55,25 @@ const AddNewContact = (props) => {
             })
           }
         ></input>
+        <label htmlFor="contact">Contact number: </label>
+        <input
+          type="tel"
+          id="contact-number"
+          name="contact"
+          value={state.contact}
+          onChange={(e) =>
+            dispatch({
+              type: "change",
+              value: e.target.value,
+              key: e.target.name,
+            })
+          }
+        />
         <label htmlFor="last-contact">Last Contact Date:</label>
         <input
           type="date"
           id="last-contact"
           name="lastContact"
-          placeholder="2022-03-16"
           value={state.lastContact}
           onChange={(e) =>
             dispatch({
@@ -65,23 +83,8 @@ const AddNewContact = (props) => {
             })
           }
         ></input>
-        <label htmlFor="notes">Notes:</label>
-        <input
-          type="text"
-          id="notes"
-          name="notes"
-          placeholder="Last time we spoke..."
-          value={state.notes}
-          onChange={(e) =>
-            dispatch({
-              type: "change",
-              value: e.target.value,
-              key: e.target.name,
-            })
-          }
-        ></input>
       </form>
-      <button>Add Contact</button>
+      <button onClick={addBtnHandler}>Add Contact</button>
     </div>
   );
 };

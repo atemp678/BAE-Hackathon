@@ -3,6 +3,7 @@ import Card from "./Card";
 import ViewContactSummary from "./ViewContactSummary";
 
 export default function ViewContacts(props) {
+  console.log("Props contacts: ", props.contacts);
   return (
     <Card>
       <div>
@@ -10,8 +11,10 @@ export default function ViewContacts(props) {
         <ul>
           {props.contacts.map((contact) => (
             <ViewContactSummary
-              name={contact.name}
-              date={contact.lastContactDate}
+              name={contact.firstName}
+              date={contact.lastContact}
+              docRef={contact.docRef}
+              viewSingleContact={props.viewSingleContact}
               key={contact.docRef}
             />
           ))}
