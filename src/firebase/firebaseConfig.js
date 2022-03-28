@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc, setDoc, doc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,11 +21,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const getContacts = async () => {
+export const getContacts = async () => {
   const querySnapshot = await getDocs(collection(db, "Contacts"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.data().lastContactDate.toDate());
   });
 };
-export default getContacts;
+
+// Add a new document with a generated id.
+export const addContact = async (data) => {
+  const docRef = await addDoc(collection(db, "Contacts"), data);
+  const newData = { ...data, docRef: docRef.id };
+  await updateContact(newData.docRef, newData);
+  console.log("Document written with ID: ", docRef.id);
+};
+
+//Update a document
+export const updateContact = async (docRef, data) => {
+  await setDoc(doc(db, "Contacts", docRef), data);
+};

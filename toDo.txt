@@ -1,0 +1,13 @@
+ToDo:
+
+1. ADD CRUD functions to firebase configuration
+2. Look at unit testing
+    a. Check name validation
+    b. Async fetch data
+    c. Testing date.
+3. Look at moment.js
+4. Front end development for dashboard, add contact, view contact, view contacts, delete contact, filter by date
+5. link firestore to front end
+
+
+
