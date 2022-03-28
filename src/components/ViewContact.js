@@ -13,6 +13,7 @@ export default function ViewContact(props) {
       <p>
         Last contact made on: <span>{props.lastContactDate}</span>
       </p>
+      <Notes noteData={props.notes} />
     </Card>
   );
 }

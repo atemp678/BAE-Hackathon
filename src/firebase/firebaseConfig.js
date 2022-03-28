@@ -23,10 +23,11 @@ const db = getFirestore(app);
 
 export const getContacts = async () => {
   const querySnapshot = await getDocs(collection(db, "Contacts"));
+  const contacts = [];
   querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.data().lastContactDate.toDate());
+    contacts.push(doc.data());
   });
+  return contacts;
 };
 
 // Add a new document with a generated id.
