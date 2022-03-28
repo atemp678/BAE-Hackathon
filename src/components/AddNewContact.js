@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { addContact } from "../firebase/firebaseConfig.js";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -62,22 +63,8 @@ const AddNewContact = (props) => {
             })
           }
         ></input>
-        <label htmlFor="notes">Notes:</label>
-        <input
-          type="text"
-          id="notes"
-          name="notes"
-          value={state.notes}
-          onChange={(e) =>
-            dispatch({
-              type: "change",
-              value: e.target.value,
-              key: e.target.name,
-            })
-          }
-        ></input>
       </form>
-      <button>Add Contact</button>
+      <button onClick={() => addContact(state)}>Add Contact</button>
     </div>
   );
 };
