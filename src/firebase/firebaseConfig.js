@@ -25,7 +25,7 @@ export const getContacts = async () => {
   const querySnapshot = await getDocs(collection(db, "Contacts"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    console.log(doc.data().lastContactDate.toDate());
+    console.log(doc.data());
   });
 };
 
