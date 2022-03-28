@@ -1,7 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import getContacts from "./firebase/firebaseConfig";
 
 function App() {
+  getContacts();
   return (
     <div className="App">
       <header className="App-header">
