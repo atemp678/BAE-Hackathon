@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-
+import { addContact } from "../firebase/firebaseConfig";
 function reducer(state, action) {
   switch (action.type) {
     case "change":
@@ -17,6 +17,10 @@ const AddNewContact = (props) => {
     notes: "",
     contact: "",
   });
+
+  const addBtnHandler = () => {
+    addContact(state);
+  };
 
   return (
     <div>
@@ -78,7 +82,7 @@ const AddNewContact = (props) => {
           }
         ></input>
       </form>
-      <button>Add Contact</button>
+      <button onClick={addBtnHandler}>Add Contact</button>
     </div>
   );
 };

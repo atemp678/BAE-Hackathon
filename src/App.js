@@ -8,7 +8,7 @@ import AddNewContact from "./components/AddNewContact";
 function App() {
   const [contacts, setContacts] = useState([]);
   const [viewedContact, setViewedContact] = useState(false);
-  const [addContactView, setAddContactView] = useState(true);
+  const [addContactView, setAddContactView] = useState(false);
   useEffect(() => {
     async function getAllContacts() {
       setContacts(await getContacts());
