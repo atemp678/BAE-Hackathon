@@ -15,6 +15,7 @@ const AddNewContact = (props) => {
     lastNameInitial: "",
     lastContact: "",
     notes: "",
+    contact: "",
   });
 
   return (
@@ -48,12 +49,12 @@ const AddNewContact = (props) => {
             })
           }
         ></input>
-        <label htmlFor="last-contact">Last Contact Date:</label>
+        <label htmlFor="contact">Contact number: </label>
         <input
-          type="date"
-          id="last-contact"
-          name="lastContact"
-          value={state.lastContact}
+          type="tel"
+          id="contact-number"
+          name="contact"
+          value={state.contact}
           onChange={(e) =>
             dispatch({
               type: "change",
@@ -61,13 +62,13 @@ const AddNewContact = (props) => {
               key: e.target.name,
             })
           }
-        ></input>
-        <label htmlFor="notes">Notes:</label>
+        />
+        <label htmlFor="last-contact">Last Contact Date:</label>
         <input
-          type="text"
-          id="notes"
-          name="notes"
-          value={state.notes}
+          type="date"
+          id="last-contact"
+          name="lastContact"
+          value={state.lastContact}
           onChange={(e) =>
             dispatch({
               type: "change",

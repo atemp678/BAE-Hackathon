@@ -1,6 +1,6 @@
 ToDo:
 
-1. ADD CRUD functions to firebase configuration
+
 2. Look at unit testing
     a. Check name validation
     b. Async fetch data
